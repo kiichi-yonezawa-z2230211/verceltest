@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { db } from './firebase';
-import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import './App.css';
 
 function App() {
@@ -17,13 +17,6 @@ function App() {
   });
 
   const [expenses, setExpenses] = useState([]);
-  const [masterData, setMasterData] = useState({
-    departments: [],
-    vendors: [],
-    accounts: [],
-    segments: [],
-    taxCategories: []
-  });
 
   // Firestoreから経費データを取得
   const fetchExpenses = async () => {
@@ -40,30 +33,8 @@ function App() {
     }
   };
 
-  // Firestoreからマスタデータを取得
-  const fetchMasterData = async () => {
-    try {
-      const departments = await getDocs(collection(db, 'departments'));
-      const vendors = await getDocs(collection(db, 'vendors'));
-      const accounts = await getDocs(collection(db, 'accounts'));
-      const segments = await getDocs(collection(db, 'segments'));
-      const taxCategories = await getDocs(collection(db, 'taxCategories'));
-
-      setMasterData({
-        departments: departments.docs.map(doc => ({ id: doc.id, ...doc.data() })),
-        vendors: vendors.docs.map(doc => ({ id: doc.id, ...doc.data() })),
-        accounts: accounts.docs.map(doc => ({ id: doc.id, ...doc.data() })),
-        segments: segments.docs.map(doc => ({ id: doc.id, ...doc.data() })),
-        taxCategories: taxCategories.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-      });
-    } catch (error) {
-      console.error('マスタデータ取得エラー:', error);
-    }
-  };
-
   useEffect(() => {
     fetchExpenses();
-    fetchMasterData();
   }, []);
 
   const handleInputChange = (e) => {
