@@ -1,0 +1,37 @@
+# Firebase Firestore セキュリティルール
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 経費データ
+    match /expenses/{document=**} {
+      allow read, write: if true;  // 開発用: 本番環境では認証を追加
+    }
+    
+    // マスタデータ
+    match /departments/{document=**} {
+      allow read: if true;
+      allow write: if false;  // マスタは読み取り専用
+    }
+    
+    match /vendors/{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    match /accounts/{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    match /segments/{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    match /taxCategories/{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

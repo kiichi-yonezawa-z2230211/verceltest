@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'MS Gothic', 'Meiryo', monospace;
+  background: linear-gradient(to bottom, #a8d8a8, #6cb66c);
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(to right, #4a934a, #6cb66c);
+  height: 120px;
+  position: relative;
+  border-bottom: 2px solid #2d5a2d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content h1 {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+}
+
+.main-container {
+  max-width: 980px;
+  margin: 20px auto;
+  background: white;
+  border: 2px solid #999;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.title-bar {
+  background: linear-gradient(to bottom, #d0f0d0, #b0e0b0);
+  padding: 8px 15px;
+  border: 1px solid #999;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #2d5a2d;
+  font-size: 16px;
+}
+
+.expense-form {
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.form-group label {
+  width: 200px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  background: linear-gradient(to bottom, #5cb85c, #4cae4c);
+  color: white;
+  border: 1px solid #4cae4c;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to bottom, #4cae4c, #449d44);
+}
+
+.expense-list {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #ddd;
+}
+
+.expense-list h2 {
+  color: #2d5a2d;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.expense-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.expense-list table th,
+.expense-list table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.expense-list table th {
+  background: #f5f5f5;
+  font-weight: bold;
+  color: #333;
+}
+
+.expense-list table tr:hover {
+  background: #f9f9f9;
+}
+
+.delete-btn {
+  background: #d9534f;
+  color: white;
+  border: 1px solid #d43f3a;
+  padding: 5px 15px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.delete-btn:hover {
+  background: #c9302c;
+}
